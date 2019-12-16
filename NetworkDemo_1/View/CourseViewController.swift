@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CourseViewController.swift
 //  NetworkDemo_1
 //
 //  Created by Admin on 12.12.2019.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CourseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
