@@ -101,6 +101,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ShowImage" id="dna-DH-9Jl"/>
                         <segue destination="lBk-O1-fnw" kind="show" identifier="ShowCourses" id="kTW-X6-fK4"/>
+                        <segue destination="lBk-O1-fnw" kind="show" identifier="ShowCoursesAlamofire" id="mCl-Zc-kny"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjx-cJ-zjV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -180,9 +181,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="VGS-QB-mkE"/>
-                    <connections>
-                        <segue destination="06x-3l-i9m" kind="show" identifier="showCourses" id="vzy-p7-BV6"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bD-qj-VuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cu-3d-vLP">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -239,4 +237,7 @@
             <point key="canvasLocation" x="-1044" y="-172"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mCl-Zc-kny"/>
+    </inferredMetricsTieBreakers>
 </document>

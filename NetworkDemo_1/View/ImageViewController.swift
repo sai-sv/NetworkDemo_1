@@ -51,8 +51,10 @@ class ImageViewController: UIViewController {
         
         NetworkManager.downloadImage(url) { (image) in
             
-            self.activityIndicator.stopAnimating()
-            self.imageView.image = image
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.imageView.image = image
+            }
         }
     }
 }

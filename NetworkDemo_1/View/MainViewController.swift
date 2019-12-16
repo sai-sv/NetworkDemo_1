@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 private let url = "https://jsonplaceholder.typicode.com/posts"
 private let uploadImageUrl = "https://api.imgur.com/3/image"
 private let downloadFileUrl = "https://speed.hetzner.de/100MB.bin"
+private let coursesUrl = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
 
 enum Action: String, CaseIterable {
     
@@ -22,6 +23,7 @@ enum Action: String, CaseIterable {
     case FetchData = "SHOW COURSES"
     case Upload = "UPLOAD"
     case DownloadData = "DOWNLOAD DATA"
+    case FetchDataAlamofire = "ALAMOFIRE"
 }
 
 class MainViewController: UICollectionViewController {
@@ -81,6 +83,9 @@ class MainViewController: UICollectionViewController {
             showAlert()
             dataProvider.downloadFile(downloadFileUrl)
             break
+        case .FetchDataAlamofire:
+            performSegue(withIdentifier: "ShowCoursesAlamofire", sender: self)
+            break
         }
     }
     
@@ -125,15 +130,21 @@ class MainViewController: UICollectionViewController {
         }
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier,
+            let dvc = segue.destination as? CoursesTableViewController else { return }
         
-        if identifier == "ShowImage" {
-            
-        } else if identifier == "ShowDetail" {
-            
+        switch identifier {
+        case "ShowCourses":
+            dvc.fetchData(coursesUrl)
+            break
+        case "ShowCoursesAlamofire":
+            dvc.fetchDataAlamofire(coursesUrl)
+            break
+        default:
+            break
         }
-    }*/
+    }
 }
 
 extension MainViewController {

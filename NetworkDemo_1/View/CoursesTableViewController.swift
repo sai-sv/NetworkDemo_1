@@ -10,20 +10,29 @@ import UIKit
 
 class CoursesTableViewController: UITableViewController {
 
-    private let url = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     private var courses = [Course]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
-        fetchData()
     }
     
-    private func fetchData() {
+    func fetchData(_ url: String) {
         NetworkManager.fetchData(url) { (courses) in
-            self.courses = courses
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.courses = courses
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func fetchDataAlamofire(_ url: String) {
+        AlamofireRequest.fetchData(url) { (courses) in
+            DispatchQueue.main.async {
+                self.courses = courses
+                self.tableView.reloadData()
+            }
         }
     }
 }

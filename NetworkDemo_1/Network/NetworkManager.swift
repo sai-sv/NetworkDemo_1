@@ -79,11 +79,7 @@ class NetworkManager {
             do {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let courses = try decoder.decode([Course].self, from: data)
-                
-                DispatchQueue.main.async {
-                    completion(courses)
-                }
-                
+                completion(courses)
             } catch let error as NSError {
                 print("Error: \(error.localizedDescription), info: \(error.userInfo)")
             }
@@ -98,10 +94,7 @@ class NetworkManager {
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, responce, error) in
             guard let imageData = data, let image = UIImage(data: imageData) else { return }
-
-            DispatchQueue.main.sync {
-                completion(image)
-            }
+            completion(image)
         }
         task.resume()
     }
